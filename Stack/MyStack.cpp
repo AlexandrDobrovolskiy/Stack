@@ -2,49 +2,35 @@
 #include "MyStack.h"
 
 
-template <class T>
-MyStack<T>::MyStack()
-{
+MyStack::MyStack(){
 	lastAdded = -1;
 	count = 0;
 }
 
-template <class T>
-MyStack<T>::~MyStack()
-{
+MyStack::~MyStack(){
 }
 
-template <class T>
-void MyStack<T>::add(T item) 
-{
+void MyStack::add(int item) {
 	items[++lastAdded] = item;
 	count++;
 }
 
-template <class T>
-T MyStack<T>::get() 
-{
+int MyStack::get() {
 	checkForExeption();
 	return items[lastAdded];
 }
 
-template <class T>
-void MyStack<T>::remove() 
-{
+void MyStack::remove() {
 	checkForExeption();
 	items[lastAdded--] = 0;
 	count--;
 }
 
-template <class T>
-bool MyStack<T>::isEmpty() 
-{
+bool MyStack::isEmpty() {
 	return count == 0;
 }
 
-template <class T>
-void MyStack<T>::checkForExeption() 
-{
+void MyStack::checkForExeption() {
 	if (isEmpty()) 
 	{
 		throw nullptr;

@@ -6,8 +6,15 @@
 #ifndef MyStack_H
 #define MyStack_H
 
-template <class T> class MyStack
+class MyStack
 {
+private:
+	//Member variables
+	int items[SIZE];
+	int count;
+	int lastAdded;
+	int currentElement;
+
 public:
 	//Defoult constructor
 	MyStack();
@@ -16,13 +23,13 @@ public:
 	~MyStack();
 
 	//Methods
-	void add(T item);
+	void add(int item);
 		//Add's an item into stack
 
 	void remove();
 		//Remove's last added item
 
-	T get();
+	int get();
 		//Return's the last added item
 
 	bool isEmpty();
@@ -30,14 +37,6 @@ public:
 
 	void checkForExeption();
 		//Throw's exeption if the collection is empty
-
-private:
-	//Member variables
-	T items[5];
-	int count;
-	int lastAdded;
-	int currentElement;
-
 };
 
 #endif 
