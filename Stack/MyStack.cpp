@@ -4,35 +4,47 @@
 
 MyStack::MyStack(){
 	lastAdded = -1;
-	count = 0;
 }
 
 MyStack::~MyStack(){
 }
 
-void MyStack::add(int item) {
-	items[++lastAdded] = item;
-	count++;
+bool MyStack::add(int item) {
+	if (!isFull()){
+		items[++lastAdded] = item;
+		return true;
+	}
+	return false;
 }
 
 int MyStack::get() {
-	checkForExeption();
 	return items[lastAdded];
 }
 
 void MyStack::remove() {
 	checkForExeption();
 	items[lastAdded--] = 0;
-	count--;
+}
+
+int MyStack::removeAndGet() {
+	if (isEmpty())
+		return NULL;
+	int temp = items[lastAdded];
+	items[lastAdded--] = 0;
+	return temp;
+}
+
+bool MyStack::isFull() {
+	return lastAdded == SIZE - 1;
 }
 
 bool MyStack::isEmpty() {
-	return count == 0;
+	return  lastAdded == -1;
 }
 
 void MyStack::checkForExeption() {
 	if (isEmpty()) 
 	{
-		throw nullptr;
+		throw "The collection is empty !";
 	}
 }

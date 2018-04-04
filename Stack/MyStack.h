@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 #include "stdafx.h"
-#define SIZE 5
+#define SIZE 2
 
 #ifndef MyStack_H
 #define MyStack_H
@@ -11,9 +11,7 @@ class MyStack
 private:
 	//Member variables
 	int items[SIZE];
-	int count;
 	int lastAdded;
-	int currentElement;
 
 public:
 	//Defoult constructor
@@ -23,11 +21,17 @@ public:
 	~MyStack();
 
 	//Methods
-	void add(int item);
+	bool add(int item);
 		//Add's an item into stack
+
+	bool isFull();
+		//Shecks fullness
 
 	void remove();
 		//Remove's last added item
+	
+	int removeAndGet();
+		//Useless thing...
 
 	int get();
 		//Return's the last added item
